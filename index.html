@@ -2,7 +2,7 @@
 <html lang="it" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>php-ajax-dischi</title>
   <!-- Vue -->
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <!-- Axios -->
@@ -15,7 +15,7 @@
       <header>
         <div class="container">
           <img class="logo" src="img/logo.png" alt="">
-          <select class="" name="" v-model="filter" @change="filterGenre">
+          <select name="" v-model="filter" @change="filterGenre">
             <option value="All"> All</option>
             <option value="Pop"> Pop</option>
             <option value="Rock">Rock</option>
@@ -27,7 +27,7 @@
       <main>
         <div class="container">
           <ul v-for="cd in listCds">
-            <li><img style="width:100%;" :src="cd.poster" alt=""></li>
+            <li><img :src="cd.poster" alt=""></li>
             <li>{{cd.title}}</li>
             <li>{{cd.author}}</li>
             <li>{{cd.year}}</li>

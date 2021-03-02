@@ -16,7 +16,7 @@ require_once __DIR__ . '/database/database.php';
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Php ajax dischi</title>
     <link rel="stylesheet" href="css/app.css">
   </head>
   <body>
@@ -32,7 +32,7 @@ require_once __DIR__ . '/database/database.php';
 ?>
 
 <ul>
-<li><img style="width:100%;" src=" <?php echo $disco["poster"];?> " alt=""></li>
+<li><img src=" <?php echo $disco["poster"];?> " alt=""></li>
 <li><?php echo $disco["title"];?></li>
 <li ><?php echo $disco["author"];?></li>
 <li><?php echo $disco["year"];?></li>

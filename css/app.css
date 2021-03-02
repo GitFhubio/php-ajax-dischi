@@ -53,6 +53,9 @@ main ul {
 main li {
   text-align: center;
 }
+main li img {
+  width: 100%;
+}
 main li:nth-child(2) {
   font-size: 22px;
   font-weight: 600;
