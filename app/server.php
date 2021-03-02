@@ -17,6 +17,7 @@ if (isset($filter) && $filter !='All') {
     foreach($dischi as $disco){
         if(strpos($disco['genre'] , $filter) !== false ){
             $dischiFiltered[] = $disco;
+            // pusho il disco nell'array di dischi
         }
     }
     echo json_encode($dischiFiltered);
