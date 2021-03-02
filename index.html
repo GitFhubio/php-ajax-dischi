@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
+  <div id="app">
   <div class="wrapper">
   <header>
   <div class="container">
@@ -20,7 +21,18 @@
   <div class="container">
 
 
-  <ul>
+  <ul v-for="cd in listCds">
+ <li><img style="width:100%;" :src="cd.poster" alt=""></li>
+<li>{{
+  cd.title
+}}</li>
+<li>{{
+  cd.author
+}}</li>
+<li>{{
+  cd.year
+}}</li>
+
   <!-- <li><img style="width:100%;" src=" <?php echo $disco["poster"];?> " alt=""></li>
   <li><?php echo $disco["title"];?></li>
   <li><?php echo $disco["author"];?></li>
@@ -36,5 +48,6 @@
     -->
 
 <script src="js/action.js" charset="utf-8"></script>
+</div>
 </body>
 </html>
