@@ -7,7 +7,7 @@
 require_once __DIR__ . '/../database/database.php';
 
 header('Content-Type: application/json');
-echo json_encode($dischi);
+// echo json_encode($dischi);
 
 $filter = isset($_GET["filter"]) ? $_GET["filter"] : '';
 
