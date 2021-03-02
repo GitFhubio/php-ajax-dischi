@@ -20,6 +20,12 @@ if (isset($filter) && $filter !='All') {
             // pusho il disco nell'array di dischi
         }
     }
+
+// potevo usare anche l'array filter
+
+    // $dischiFiltered = array_filter($dischi, function ($disco) use ($filter) {
+    //       return ($disco['genre'] == $filter);});
+
     echo json_encode($dischiFiltered);
 
 }else{
