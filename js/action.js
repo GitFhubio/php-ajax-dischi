@@ -1,8 +1,8 @@
 const app = new Vue( {
     el: '#app',
     data: {
-       selected: 'All',
        listCds: [],
+       filter:'',
     },
     mounted () {
         axios.get('http://localhost:8888/php-ajax-dischi/app/server.php')
@@ -13,6 +13,12 @@ const app = new Vue( {
             }
             ,
     methods:{
-
+    filterGenre(){
+       axios.get('http://localhost:8888/php-ajax-dischi/app/server.php?filter='+this.filter)
+       .then( response => {
+           console.log(response.data);
+           this.listCds=response.data;
+         })
+    }
    }
 });
