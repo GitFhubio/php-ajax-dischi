@@ -23,7 +23,7 @@ require_once __DIR__ . '/database/database.php';
 <div class="wrapper">
 <header>
 <div class="container">
-<img style="padding-left:10px;" src="http://via.placeholder.com/90" alt="">
+<img class="logo" src="img/logo.png" alt="">
 </div>
 </header>
 <main>
