@@ -34,7 +34,7 @@ require_once __DIR__ . '/database/database.php';
 <ul>
 <li><img style="width:100%;" src=" <?php echo $disco["poster"];?> " alt=""></li>
 <li><?php echo $disco["title"];?></li>
-<li><?php echo $disco["author"];?></li>
+<li ><?php echo $disco["author"];?></li>
 <li><?php echo $disco["year"];?></li>
 </ul>
 

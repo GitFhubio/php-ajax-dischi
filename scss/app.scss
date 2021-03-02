@@ -37,7 +37,6 @@ main{
   margin-top:50px;
 ul{
   display:block;
-  // margin:0;
   padding:20px;
 list-style: none;
 color:#fff;
@@ -48,5 +47,14 @@ margin:15px 10px;
 }
 li{
   text-align: center;
+  &:nth-child(2){
+    font-size: 22px;
+    font-weight: 600;
+  }
+  &:nth-child(3){
+    margin:5px 0;
+opacity:0.5;
+  }
 }
+
 }
