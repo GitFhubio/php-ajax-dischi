@@ -1,60 +1,44 @@
 <!DOCTYPE html>
 <html lang="it" dir="ltr">
 <head>
-    <meta charset="utf-8">
-    <title></title>
-     <!-- Vue -->
-   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-     <!-- Axios -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
-    <link rel="stylesheet" href="css/app.css">
+  <meta charset="utf-8">
+  <title></title>
+  <!-- Vue -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- Axios -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+  <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
   <div id="app">
-  <div class="wrapper">
-  <header>
-  <div class="container">
-  <img style="padding-left:10px;" src="http://via.placeholder.com/90" alt="">
-  </div>
-  <select class="" name="" v-model="filter" @change="filterGenre">
-    <option value="All"> All</option>
-    <option value="Pop"> Pop</option>
-    <option value="Rock">Rock</option>
-    <option value="Metal">Metal</option>
-    <option value="Jazz">Jazz</option>
-  </select>
-  </header>
-  <main>
-  <div class="container">
-
-
-  <ul v-for="cd in listCds">
- <li><img style="width:100%;" :src="cd.poster" alt=""></li>
-<li>{{
-  cd.title
-}}</li>
-<li>{{
-  cd.author
-}}</li>
-<li>{{
-  cd.year
-}}</li>
-
-  <!-- <li><img style="width:100%;" src=" <?php echo $disco["poster"];?> " alt=""></li>
-  <li><?php echo $disco["title"];?></li>
-  <li><?php echo $disco["author"];?></li>
-  <li><?php echo $disco["year"];?></li> -->
-  </ul>
-  </div>
-  </main>
-  </div>
-
+    <div class="wrapper">
+      <header>
+        <div class="container">
+          <img class="logo" src="img/logo.png" alt="">
+          <select class="" name="" v-model="filter" @change="filterGenre">
+            <option value="All"> All</option>
+            <option value="Pop"> Pop</option>
+            <option value="Rock">Rock</option>
+            <option value="Metal">Metal</option>
+            <option value="Jazz">Jazz</option>
+          </select>
+        </div>
+      </header>
+      <main>
+        <div class="container">
+          <ul v-for="cd in listCds">
+            <li><img style="width:100%;" :src="cd.poster" alt=""></li>
+            <li>{{cd.title}}</li>
+            <li>{{cd.author}}</li>
+            <li>{{cd.year}}</li>
+          </ul>
+        </div>
+      </main>
+    </div>
     <!-- 2nd milestone
     per la seconda milestone, index.html dovrà eseguire una chiamata ajax (meglio se con vuejs) verso app/server.php
-
-    -->
-
-<script src="js/action.js" charset="utf-8"></script>
+  -->
+  <script src="js/action.js" charset="utf-8"></script>
 </div>
 </body>
 </html>
