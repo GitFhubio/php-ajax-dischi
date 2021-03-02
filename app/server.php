@@ -11,7 +11,7 @@ header('Content-Type: application/json');
 
 $filter = isset($_GET["filter"]) ? $_GET["filter"] : '';
 
-if( strlen($filter) !== 0){
+if(strlen($filter) !== 0 && $filter !='All'){
     $dischiFiltered =[];
     foreach($dischi as $disco){
         if(strpos($disco['genre'] , $filter) !== false ){

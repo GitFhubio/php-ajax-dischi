@@ -2,7 +2,7 @@ const app = new Vue( {
     el: '#app',
     data: {
        listCds: [],
-       filter:'',
+       filter:'All',
     },
     mounted () {
         axios.get('http://localhost:8888/php-ajax-dischi/app/server.php')
