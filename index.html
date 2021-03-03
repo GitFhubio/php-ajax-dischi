@@ -15,10 +15,14 @@
       <header>
         <div class="container">
           <img class="logo" src="img/logo.png" alt="">
-          <select name="" v-model="filter" @change="filterGenre">
-            <option value="All"> All</option>
-            <option v-for="genre in listGenre" :value="genre">{{genre}}</option>
-          </select>
+          <div class="right">
+            <select name="" v-model="filter" @change="filterGenre">
+              <option value="All"> All</option>
+              <option v-for="genre in listGenre" :value="genre">{{genre}}</option>
+            </select>
+            <input type="text" placeholder="Inserisci genere" value="" v-model="search" @keyup.enter="searchGenre()">
+          </div>
+
         </div>
       </header>
       <main>

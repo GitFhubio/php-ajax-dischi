@@ -32,9 +32,16 @@ header .logo {
   width: 60px;
   height: auto;
 }
-header select {
-  width: 100px;
+header .right {
+  width: 120px;
+}
+header .right select {
+  width: 100%;
   height: 30px;
+}
+header .right input {
+  display: block;
+  width: 100%;
 }
 
 main {

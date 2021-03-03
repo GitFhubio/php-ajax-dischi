@@ -1,6 +1,7 @@
 const app = new Vue( {
     el: '#app',
     data: {
+      search:'',
        listCds: [],
        filter:'All',
        errormessage:'',
@@ -29,10 +30,23 @@ const app = new Vue( {
            console.log(response.data);
            this.listCds=response.data;
          })
+       //   .catch(function (error) {
+       //   console.log(error.message);
+       //   self.errormessage="Il genere selezionato non esiste: "+error.message;
+       // });
+    },
+    searchGenre(){
+      let self=this;
+       axios.get('http://localhost:8888/php-ajax-dischi/app/server.php?filter='+this.search)
+       .then( response => {
+           console.log(response.data);
+           this.listCds=response.data;
+         })
          .catch(function (error) {
          console.log(error.message);
          self.errormessage="Il genere selezionato non esiste: "+error.message;
        });
+
     }
    }
 });
