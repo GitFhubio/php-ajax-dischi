@@ -16,8 +16,8 @@ function genres($array){
     }}
     return $discgenres;};
 
-    function errorFunction($dischi,$filter){
-      if(!in_array( $filter ,genres($dischi) )){
+    function errorFunction($array,$parameter){
+      if(!in_array( $parameter ,genres($array) )){
         return http_response_code(400);
       }}
       // print_r(genres($dischi));
@@ -47,4 +47,4 @@ function genres($array){
 
       // potevo usare anche l'array filter
       // $dischiFiltered = array_filter($dischi, function ($disco) use ($filter) {
-      //       return ($disco['genre'] == $filter);});
+      // return ($disco['genre'] == $filter);});
