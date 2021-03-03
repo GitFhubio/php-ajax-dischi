@@ -19,6 +19,8 @@ if (!empty($filter) && $filter !='All') {
         if(strpos($disco['genre'] , $filter) !== false ){
             $dischiFiltered[] = $disco;
             // pusho il disco nell'array di dischi
+        } else{
+            http_response_code(400);
         }
     }
 
@@ -32,3 +34,7 @@ if (!empty($filter) && $filter !='All') {
 }else{
     echo json_encode($dischi);
 }
+
+// if($filter == "boh"){
+//   http_response_code(400);
+// }

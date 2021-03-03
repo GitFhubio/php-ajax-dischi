@@ -25,6 +25,7 @@
         </div>
       </header>
       <main>
+    <h1 v-if="errormessage" style="color:red;text-align:center;">{{errormessage}}</h1>
         <div class="container">
           <ul v-for="cd in listCds">
             <li><img :src="cd.poster" alt=""></li>
