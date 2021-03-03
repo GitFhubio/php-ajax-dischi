@@ -11,7 +11,8 @@ header('Content-Type: application/json');
 
 $filter = $_GET["filter"];
 
-if (isset($filter) && $filter !='All') {
+// qui avevo messo inizialmente isset al posto di !empty
+if (!empty($filter) && $filter !='All') {
 
     $dischiFiltered =[];
     foreach($dischi as $disco){
