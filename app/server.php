@@ -19,9 +19,10 @@ if (!empty($filter) && $filter !='All') {
         if(strpos($disco['genre'] , $filter) !== false ){
             $dischiFiltered[] = $disco;
             // pusho il disco nell'array di dischi
-        } else{
-            http_response_code(400);
         }
+        // else{
+        //     http_response_code(400);
+        // }
     }
 
 // potevo usare anche l'array filter
