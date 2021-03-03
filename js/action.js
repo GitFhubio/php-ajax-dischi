@@ -16,7 +16,7 @@ const app = new Vue( {
     methods:{
     filterGenre(){
       let self=this;
-       axios.get('http://localhost:8888/php-ajax-dischi/app/server.php?filter=boh')
+       axios.get('http://localhost:8888/php-ajax-dischi/app/server.php?filter='+this.filter)
        .then( response => {
            console.log(response.data);
            this.listCds=response.data;
