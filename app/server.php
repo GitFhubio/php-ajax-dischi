@@ -6,15 +6,28 @@
 
 require_once __DIR__ . '/../database/database.php';
 
+$discgenres=[];
+foreach($dischi as $disco){
+  if(!in_array( $disco['genre'] ,$discgenres )){
+    $discgenres[]=$disco['genre'];
+  }}
+
+// print_r($discgenres);
+
 header('Content-Type: application/json');
 // echo json_encode($dischi);
 
-$filter = isset($_GET["filter"]) ? $_GET["filter"] : '';
+if (isset($_GET["filter"]) && $_GET["filter"] != 'All') {
+  $filter=$_GET["filter"];
+
+  foreach($dischi as $disco){
+    if(!in_array( $filter ,$discgenres )){
+      http_response_code(400);
+    }}
 
 // qui avevo messo inizialmente isset al posto di !empty
-if (!empty($filter) && $filter !='All') {
-
-    $dischiFiltered =[];
+if (!empty($filter) ) {
+  $dischiFiltered =[];
     foreach($dischi as $disco){
         if(strpos($disco['genre'] , $filter) !== false ){
             $dischiFiltered[] = $disco;
@@ -30,10 +43,6 @@ if (!empty($filter) && $filter !='All') {
 
     echo json_encode($dischiFiltered);
 
-}else{
+}}else{
     echo json_encode($dischi);
 }
-
-// if($filter == "boh"){
-//   http_response_code(400);
-// }
