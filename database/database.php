@@ -44,4 +44,9 @@ $dischi = [
             "year" => "2002"
         ]
         ];
+
+        // foreach($dischi as $disco){
+        //   var_dump($disco['genre']);
+        //   sono stringhe
+        //   };
 ?>
