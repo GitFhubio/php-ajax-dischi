@@ -9,7 +9,7 @@ require_once __DIR__ . '/../database/database.php';
 header('Content-Type: application/json');
 // echo json_encode($dischi);
 
-$filter = $_GET["filter"];
+$filter = isset($_GET["filter"]) ? $_GET["filter"] : '';
 
 // qui avevo messo inizialmente isset al posto di !empty
 if (!empty($filter) && $filter !='All') {
@@ -20,9 +20,7 @@ if (!empty($filter) && $filter !='All') {
             $dischiFiltered[] = $disco;
             // pusho il disco nell'array di dischi
         }
-        // else{
-        //     http_response_code(400);
-        // }
+
     }
 
 // potevo usare anche l'array filter
