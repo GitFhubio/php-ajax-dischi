@@ -43,10 +43,18 @@ const app = new Vue( {
            this.listCds=response.data;
          })
          .catch(function (error) {
-         console.log(error.message);
-         self.errormessage="Il genere selezionato non esiste: "+error.message;
-       });
+         console.log(typeof error.response.data);
+         // console.log(error.response.status);
+         // if(error.response.status == 400){
+         self.errormessage=error.response.data;
+       // }
+       // else if(error.response.status == 405){
+       //   self.errormessage="Devi inserire un genere: "+error.message;
+       // }
+
+    })
+       }
 
     }
-   }
+
 });

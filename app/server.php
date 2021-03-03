@@ -7,23 +7,33 @@
 require_once __DIR__ . '/../database/database.php';
 
 // funzioni ausiliarie
-
 function genres($array){
   $discgenres=[];
   foreach($array as $disco){
     if(!in_array( $disco['genre'] ,$discgenres )){
       $discgenres[]=$disco['genre'];
     }}
-    return $discgenres;};
+    return $discgenres;}
 
     function errorFunction($array,$parameter){
-      if(!in_array( $parameter ,genres($array) )){
-        return http_response_code(400);
-      }}
-      // print_r(genres($dischi));
-      // print_r($discgenres);
-      // _______________________________
+      if($parameter!='' && !in_array( $parameter ,genres($array) )){
+      http_response_code(400);echo "Il genere inserito non esiste";
+      }
+       if($parameter ==''){
+         http_response_code(400);echo "Devi inserire un genere";
+       }}
 
+      // _______________________________
+// print_r(genres($dischi));
+// var_dump ($_GET["filter"]);
+
+// var_dump(isset ($_GET["filter"]));
+// var_dump(empty ($_GET["filter"]));
+// var_dump($_GET["filter"]);
+// empty ha comportamento 'indesiderato' con zero
+// var_dump(array_key_exists("filter",$_GET));
+// var_dump($_GET["filter"] != 'All');
+// se non è settato è null ,che diverso da 'all' mi dà vero quindi non ho problemi
       header('Content-Type: application/json');
       // echo json_encode($dischi);
       if (isset($_GET["filter"]) && $_GET["filter"] != 'All') {
