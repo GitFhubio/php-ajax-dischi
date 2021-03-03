@@ -17,10 +17,7 @@
           <img class="logo" src="img/logo.png" alt="">
           <select name="" v-model="filter" @change="filterGenre">
             <option value="All"> All</option>
-            <option value="Pop"> Pop</option>
-            <option value="Rock">Rock</option>
-            <option value="Metal">Metal</option>
-            <option value="Jazz">Jazz</option>
+            <option v-for="genre in listGenre" :value="genre">{{genre}}</option>
           </select>
         </div>
       </header>

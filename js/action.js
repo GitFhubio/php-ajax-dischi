@@ -3,15 +3,21 @@ const app = new Vue( {
     data: {
        listCds: [],
        filter:'All',
-       errormessage:''
+       errormessage:'',
+       listGenre:[]
     },
     mounted () {
         axios.get('http://localhost:8888/php-ajax-dischi/app/server.php')
         .then( response => {
             console.log(response.data);
             this.listCds=response.data;
-          })
-            }
+            // quanto segue mi serve solo a generare la lista dinamicamente in html,nessun filtro in js
+            this.listCds.forEach((cd) => {
+              if(!this.listGenre.includes(cd.genre)) {
+                this.listGenre.push(cd.genre);
+                console.log(this.listGenre);
+          }})
+        })}
             ,
     methods:{
     filterGenre(){
