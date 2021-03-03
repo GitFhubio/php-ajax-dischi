@@ -18,10 +18,10 @@ function genres($array){
     // echo json_encode($dischi);
     if (isset($_GET["filter"]) && $_GET["filter"] != 'All') {
       $filter=$_GET["filter"];
-      foreach($dischi as $disco){
+      
         if(!in_array( $filter ,genres($dischi) )){
           return http_response_code(400);
-        }}
+        }
         // qui avevo messo inizialmente isset al posto di !empty
         if (!empty($filter) ) {
           $dischiFiltered =[];
