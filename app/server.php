@@ -5,7 +5,7 @@
 // ricordatevi dell'header (vedi le slide)
 
 require_once __DIR__ . '/../database/database.php';
-
+// funzione che crea array di generi(mi serve per restituire errore se parametro non è un'opzione)
 function genres($array){
   $discgenres=[];
   foreach($array as $disco){
@@ -18,12 +18,11 @@ function genres($array){
     // echo json_encode($dischi);
     if (isset($_GET["filter"]) && $_GET["filter"] != 'All') {
       $filter=$_GET["filter"];
-      
-        if(!in_array( $filter ,genres($dischi) )){
-          return http_response_code(400);
-        }
         // qui avevo messo inizialmente isset al posto di !empty
-        if (!empty($filter) ) {
+        // if (!empty($filter) ) {
+          if(!in_array( $filter ,genres($dischi) )){
+              return http_response_code(400);
+            }
           $dischiFiltered =[];
           foreach($dischi as $disco){
             if(strpos($disco['genre'] , $filter) !== false ){
@@ -36,6 +35,8 @@ function genres($array){
           //       return ($disco['genre'] == $filter);});
 
           echo json_encode($dischiFiltered);
-        }}else{
+        }
+      // }
+        else{
           echo json_encode($dischi);
         }
