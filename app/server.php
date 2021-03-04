@@ -7,7 +7,7 @@
 require_once __DIR__ . '/../database/database.php';
 require_once __DIR__ . '/../functions/functions.php';
 
-  _______________________________
+ 
 // print_r(genres($dischi));
 // var_dump ($_GET["filter"]);
 
