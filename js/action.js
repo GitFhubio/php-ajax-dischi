@@ -8,7 +8,11 @@ const app = new Vue( {
        listGenre:[]
     },
     mounted () {
-        axios.get('http://localhost:8888/php-ajax-dischi/app/server.php')
+var href = window.location.href;
+var dir = href.substring(0, href.lastIndexOf('/')) + "/";
+console.log(dir);
+        axios.get(dir+'app/server.php')
+        // axios.get(dir+'app/server.php')   alternativa se ho index.html in folder
         .then( response => {
             console.log(response.data);
             this.listCds=response.data;
