@@ -53,7 +53,7 @@ const app = new Vue( {
          console.log(typeof error.response.data);
          // console.log(error.response.status);
          if(error.response.status == 400){
-         self.errormessage='Errore ['+ error.response.status + '] - '+ error.response.data.replace(/\[\]/g, '');
+         self.errormessage='Errore ['+ error.response.status + '] - '+ error.response.data;
        }
        if(error.response.status == 429){
          self.errormessage='Errore ['+ error.response.status + '] - Sta rispondendo ad altri hotwell.';

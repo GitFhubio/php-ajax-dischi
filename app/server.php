@@ -5,32 +5,9 @@
 // ricordatevi dell'header (vedi le slide)
 
 require_once __DIR__ . '/../database/database.php';
+require_once __DIR__ . '/../functions/functions.php';
 
-// funzioni ausiliarie
-function genres($array){
-  $discgenres=[];
-  foreach($array as $disco){
-    if(!in_array( $disco['genre'] ,$discgenres )){
-      $discgenres[]=$disco['genre'];
-    }}
-    return $discgenres;}
-
-    function errorFunction($array,$parameter){
-      if($parameter!='' && $parameter!='Alfredo' && !in_array( $parameter ,genres($array) )){
-      http_response_code(400);echo "Il genere inserito non esiste";
-       return;
-      }
-       if($parameter ==''){
-         http_response_code(400);echo "Devi inserire un genere";
-         return;
-       }
-     if($parameter =='Alfredo'){
-      http_response_code(429);
-      return;
-     }
-   }
-// da rifare con lo switch quando ho tempo
-      // _______________________________
+  _______________________________
 // print_r(genres($dischi));
 // var_dump ($_GET["filter"]);
 
@@ -47,8 +24,12 @@ function genres($array){
       // && $_GET["filter"] != 'All' ma questa va gestita lato vue
       if (isset($_GET["filter"])) {
         $filter=$_GET["filter"];
+
+        if($filter=='' || $filter=='Alfredo' || !in_array($filter,genres($dischi) )){
+        errorFunction($dischi,$filter);}
+
+        else{
         // if (!empty($filter) ) {
-        errorFunction($dischi,$filter);
         $dischiFiltered =[];
         foreach($dischi as $disco){
           if($disco['genre']==$filter){
@@ -56,7 +37,7 @@ function genres($array){
           }
         }
         echo json_encode($dischiFiltered);
-      }
+      }}
       // }
       else{
         echo json_encode($dischi);
