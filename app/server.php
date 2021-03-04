@@ -43,7 +43,9 @@ function genres($array){
 // se non è settato è null ,che diverso da 'all' mi dà vero quindi non ho problemi
       header('Content-Type: application/json');
       // echo json_encode($dischi);
-      if (isset($_GET["filter"]) && $_GET["filter"] != 'All') {
+      // qui avevo metto insieme al primo isset la condizione
+      // && $_GET["filter"] != 'All' ma questa va gestita lato vue
+      if (isset($_GET["filter"])) {
         $filter=$_GET["filter"];
         // if (!empty($filter) ) {
         errorFunction($dischi,$filter);

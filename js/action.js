@@ -25,6 +25,7 @@ const app = new Vue( {
       let self=this;
              // axios.get('http://localhost:8888/php-ajax-dischi/app/server.php?filter=0')
              //  axios.get('http://localhost:8888/php-ajax-dischi/app/server.php?filter=ciao')
+             if (this.filter != 'All'){
        axios.get('http://localhost:8888/php-ajax-dischi/app/server.php?filter='+this.filter)
        .then( response => {
            console.log(response.data);
@@ -34,9 +35,15 @@ const app = new Vue( {
        //   console.log(error.message);
        //   self.errormessage="Il genere selezionato non esiste: "+error.message;
        // });
-    },
+    } else {
+      axios.get('http://localhost:8888/php-ajax-dischi/app/server.php')
+      .then( response => {
+          console.log(response.data);
+          this.listCds=response.data;
+    })}},
     searchGenre(){
       let self=this;
+      if (this.search !='All'){
        axios.get('http://localhost:8888/php-ajax-dischi/app/server.php?filter='+this.search)
        .then( response => {
            console.log(response.data);
@@ -53,8 +60,14 @@ const app = new Vue( {
        }
 
     })
-       }
+  } else{
+
+    axios.get('http://localhost:8888/php-ajax-dischi/app/server.php')
+    .then( response => {
+        console.log(response.data);
+        this.listCds=response.data;
+  })}
 
     }
-
+}
 });
